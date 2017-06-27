@@ -22,8 +22,8 @@ under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.paulhammant.testplugins</groupId>
-  <artifactId>ph-chgl-pi</artifactId>
+  <groupId>com.paulhammant</groupId>
+  <artifactId>testplugins-ph-chgl-pi</artifactId>
   <version>2.4-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
@@ -135,12 +135,6 @@ under the License.
     <system>JIRA</system>
     <url>https://issues.apache.org/jira/browse/MCHANGELOG</url>
   </issueManagement>
-  <distributionManagement>
-    <site>
-      <id>apache.website</id>
-      <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/maven/components/${maven.site.path}</url>
-    </site>
-  </distributionManagement>
 
   <properties>
     <maven-scm.version>1.9.2</maven-scm.version>
@@ -331,6 +325,25 @@ under the License.
       </plugin>
     </plugins>
   </reporting>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/maven/components/${maven.site.path}</url>
+    </site>
+      <snapshotRepository>
+          <id>sonatype-nexus-snapshots</id>
+          <name>Sonatype Nexus Snapshots</name>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      </snapshotRepository>
+      <repository>
+          <id>sonatype-nexus-staging</id>
+          <name>Nexus Release Repository</name>
+          <url>
+              https://oss.sonatype.org/service/local/staging/deploy/maven2/
+          </url>
+      </repository>
+  </distributionManagement>
 
   <profiles>
     <profile>
